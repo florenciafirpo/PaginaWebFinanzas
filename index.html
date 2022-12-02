@@ -1,1 +1,93 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web de Finanzas</title>
+    <link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+    <br>
+    <br>
+    <h2> Ingrese el monto del Cheque al Día: </h2>
+    
+    <!--Con el evento "onkeyUp" haces el calculo a medida que ingresan el valor-->
+    <form><input id="valor" type="number" onkeyUp="calcular();">
+    <br>
+    <br>
+    <span id="result"></span>
+    <br>
+    <span id="total"></span>
+    </form>
+    <script>
+    function calcular(){
+    //Obtienes el valor
+    var valor = document.getElementById("valor").value;
+    
+    var result= document.getElementById('result');
+    var total= document.getElementById('total');
+    
+    //le descuentas el 6% y lo agregas al HTML
+    var descuento = parseInt(valor)*0.06;
+    
+    //agrega los resultados al DOM
+    result.innerHTML = 'Descuento de: $' + descuento;
+    total.innerHTML =  'Total:     $' + (parseInt(valor)-descuento);
+    }
+    </script>
+
+
+
+    <hr class="bottom-line">
+<h2> Calculador: </h2>
+    <form name="form_main">
+        <label for="date_ini">Date Inicial: </label> 
+        <input name="date_ini" id="date_ini" type="date"> <br>
+        <label for="date_end">Date Final: </label> 
+        <input name="date_end" id="date_end" type="date"> <br>
+    
+        <label for="days">Dias pasados: </label> 
+        <span id="days"></span> <br>
+    
+        <button type="button" onclick="countDays()">Contar</button>
+    </form>
+    <script>
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+    
+    function countDays() {
+        let date_ini = new Date(document.form_main.date_ini.value);
+        let date_end = new Date(document.form_main.date_end.value);
+    
+        let diff = date_end.getTime() - date_ini.getTime() + 1;
+    
+        document.getElementById('days').innerText = Math.floor(diff / day);
+    }
+    </script>
+    
+    <br>
+    <form>
+        <input type="text" name="cheque" id="cheque" placeholder="Ingrese monto cheque"> * <input type="text" name="dias" id="dias" placeholder="Ingrese dias, mínimo 10"> =
+        <input type="button" value="Total" onclick="montoFinal()">
+    </form>
+    
+        <script>
+        function montoFinal(){
+            resultado =parseInt(cheque.value) - parseInt(cheque.value)*(parseFloat(dias.value)*0.003+0.03)
+            alert("El monto a pagar es: " + resultado)
+    }
+    </script>
+    <br>
+    <hr class="bottom-line">
+    <h2>DÓLAR BLUE:</h2>
+    <h4><a target="_blank" href="https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB">Cronista Comercial</a></h4>
+    <a href="https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB"></a>
+    <h4><a target="_blank" href="https://www.lanacion.com.ar/tema/dolar-blue-tid67294/">La Nación</a></h4>
+    <a href="https://www.lanacion.com.ar/tema/dolar-blue-tid67294/"></a>
+    <h4><a target="_blank" href="https://www.infodolar.com/cotizacion-dolar-localidad-rosario-provincia-santa-fe.aspx">Dólar Rosario</a></h4>
+    <a href="https://www.infodolar.com/cotizacion-dolar-localidad-rosario-provincia-santa-fe.aspx"></a>
+</body>
+</html>
