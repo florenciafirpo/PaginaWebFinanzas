@@ -5,7 +5,7 @@ body {
     background-color: #e8d9d9;
     color: #0d0f11;
     font-family: Tahoma;
-    font-size: 16px;
+    font-size: 20px;
     
 }
 h1, h2, h3, h4, p, form {
@@ -18,10 +18,10 @@ h1, h2, h3, h4, p, form {
 h4{
     color: green;
     font-family: Tahoma;
-    font-size: 14px; 
+    font-size: 16px; 
 }
 button{
-    font-size: 18px;
+    font-size: 20px;
 }
 img{
     max-width: 300px;
