@@ -5,16 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web de Finanzas</title>
-    <link href="styles.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" type="text/javascript" defer></script>
+
 </head>
 <body>
+    <img src="imagen1.jpg" alt="logo">
     <br>
-    <br>
+    <p><script>
+        var f = new Date();
+            document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+        
+        </script>
+    </p>
+
     <h2> Ingrese el monto del Cheque al Día: </h2>
     
     <!--Con el evento "onkeyUp" haces el calculo a medida que ingresan el valor-->
     <form><input id="valor" type="number" onkeyUp="calcular();">
-    <br>
     <br>
     <span id="result"></span>
     <br>
@@ -36,58 +45,54 @@
     total.innerHTML =  'Total:     $' + (parseInt(valor)-descuento);
     }
     </script>
-
-
-
     <hr class="bottom-line">
-<h2> Calculador: </h2>
-    <form name="form_main">
-        <label for="date_ini">Date Inicial: </label> 
-        <input name="date_ini" id="date_ini" type="date"> <br>
-        <label for="date_end">Date Final: </label> 
-        <input name="date_end" id="date_end" type="date"> <br>
-    
-        <label for="days">Dias pasados: </label> 
-        <span id="days"></span> <br>
-    
-        <button type="button" onclick="countDays()">Contar</button>
-    </form>
-    <script>
-        const second = 1000;
-        const minute = second * 60;
-        const hour = minute * 60;
-        const day = hour * 24;
-    
-    function countDays() {
-        let date_ini = new Date(document.form_main.date_ini.value);
-        let date_end = new Date(document.form_main.date_end.value);
-    
-        let diff = date_end.getTime() - date_ini.getTime() + 1;
-    
-        document.getElementById('days').innerText = Math.floor(diff / day);
-    }
-    </script>
-    
+        <p><label>Fecha de inicio</label>
+    <input type="date" id="timeStart" class="form-control" oninput="calculardiasDiscount()">
+    <label>Fecha fin</label>
+    <input type="date" id="timeEnd" class="form-control" oninput="calculardiasDiscount()">
+    <label>Días</label>
+    <input class="form-control" id="daysDiscount">
+            <script>
+                function calculardiasDiscount() {
+                        var timeStart = new Date(document.getElementById("timeStart").value);
+                        var timeEnd = new Date(document.getElementById("timeEnd").value);
+                        var actualDate = new Date();
+                        if (timeEnd > timeStart)
+                        {
+                            var diff = timeEnd.getTime() - timeStart.getTime();
+                            document.getElementById("daysDiscount").value = Math.round(diff / (1000 * 60 * 60 * 24));
+                        }
+                        else if (timeEnd != null && timeEnd < timeStart) {
+                            alert("La fecha final de la promoción debe ser mayor a la fecha inicial");
+                            document.getElementById("daysDiscount").value = 0;
+                        }
+                    }
+                </script>
+    </p>
     <br>
     <form>
-        <input type="text" name="cheque" id="cheque" placeholder="Ingrese monto cheque"> * <input type="text" name="dias" id="dias" placeholder="Ingrese dias, mínimo 10"> =
+        <input type="text" name="cheque" id="cheque" placeholder="Ingrese monto cheque", size="30px"> * <input type="text" name="dias" id="dias" placeholder="Ingrese dias, mínimo 10"> =
         <input type="button" value="Total" onclick="montoFinal()">
     </form>
     
         <script>
         function montoFinal(){
-            resultado =parseInt(cheque.value) - parseInt(cheque.value)*(parseFloat(dias.value)*0.004+0.03)
+            resultado =parseInt(cheque.value) - parseInt(cheque.value)*(parseFloat(dias.value)*0.003+0.03)
             alert("El monto a pagar es: " + resultado)
     }
     </script>
+
+    
     <br>
     <hr class="bottom-line">
-    <h2>DÓLAR BLUE:</h2>
+    <h2 class="titulo1">DÓLAR BLUE:</h2>
     <h4><a target="_blank" href="https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB">Cronista Comercial</a></h4>
     <a href="https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB"></a>
     <h4><a target="_blank" href="https://www.lanacion.com.ar/tema/dolar-blue-tid67294/">La Nación</a></h4>
     <a href="https://www.lanacion.com.ar/tema/dolar-blue-tid67294/"></a>
     <h4><a target="_blank" href="https://www.infodolar.com/cotizacion-dolar-localidad-rosario-provincia-santa-fe.aspx">Dólar Rosario</a></h4>
     <a href="https://www.infodolar.com/cotizacion-dolar-localidad-rosario-provincia-santa-fe.aspx"></a>
+
+    
 </body>
 </html>
