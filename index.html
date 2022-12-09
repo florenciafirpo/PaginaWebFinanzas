@@ -20,7 +20,7 @@
         </script>
     </p>
 
-    <h2> Ingrese el monto del Cheque al Día: </h2>
+    <h3> Ingrese el monto del Cheque al Día: </h3>
     
     <!--Con el evento "onkeyUp" haces el calculo a medida que ingresan el valor-->
     <form><input id="valor" type="number" onkeyUp="calcular();">
@@ -46,11 +46,15 @@
     }
     </script>
     <hr class="bottom-line">
-        <p><label>Fecha de inicio</label>
+
+    <h3> Calculo de días </h3>
+        <p><label>Hoy</label>
     <input type="date" id="timeStart" class="form-control" oninput="calculardiasDiscount()">
-    <label>Fecha fin</label>
+    <label>Fecha del cheque</label>
     <input type="date" id="timeEnd" class="form-control" oninput="calculardiasDiscount()">
-    <label>Días</label>
+    
+    <br>
+    <label>Total Días</label>
     <input class="form-control" id="daysDiscount">
             <script>
                 function calculardiasDiscount() {
@@ -70,9 +74,9 @@
                 </script>
     </p>
     <br>
-    <form>
-        <input type="text" name="cheque" id="cheque" placeholder="Ingrese monto cheque", size="30px"> * <input type="text" name="dias" id="dias" placeholder="Ingrese dias, mínimo 10"> =
-        <input type="button" value="Total" onclick="montoFinal()">
+    <form class="formatoReporte">
+        <input class="inputNombre" type="text" name="cheque" id="cheque"  style="width : 222px" placeholder="Ingrese monto cheque"> * <input class="inputNombre" type="text" name="dias" id="dias"  size=30 style="width:200px" placeholder="Ingrese dias, mínimo 10"> =
+        <input class="inputNombre" type="button" value="Total" onclick="montoFinal()">
     </form>
     
         <script>
